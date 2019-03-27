@@ -21,13 +21,13 @@ def main():
     else:
       return 'not found'
 
-  geolocator = Nominatim(timeout=10)
+  #geolocator = Nominatim(timeout=10)
   #geolocator = GoogleV3(timeout=20)
-  #geolocator = Yandex(timeout=10)
+  geolocator = Yandex(timeout=10)
 
   tqdm.pandas()
 
-  helper = io['City'].map(str) + " " + io['State'].map(str) + " " + io['Country'].map(str)
+  helper = io['City'].map(str) + ", " + io['State'].map(str) + ", " + io['Country'].map(str)
   #helper = io['continent'].map(str)
   geolocate_column = helper.progress_apply(geolocator.geocode)
   io['latitude'] = geolocate_column.apply(get_latitude)
