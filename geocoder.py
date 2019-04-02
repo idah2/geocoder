@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+
+'''
+    File name: geocoder.py
+    Author: Daniel Story
+    Date created: 1/10/2018
+    Date last modified: 4/2/2019
+    Python Version: 2.7, 3
+'''
+
 import geopy, sys, os, pandas
 from geopy.geocoders import Nominatim, GoogleV3, Yandex
 from tqdm import tqdm
